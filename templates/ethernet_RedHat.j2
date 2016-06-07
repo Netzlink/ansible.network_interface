@@ -23,6 +23,9 @@ VLAN=yes
 DNS{{ loop.index }}={{ dns_nameserver }}
 {% endfor %}
 {% endif %}
+{% if item.hwaddress is defined%}
+HWADDR={{ item.hwaddress }}
+{% endif %}
 
 {% if item.bootproto == 'dhcp' %}
 DEVICE={{ item.device }}
